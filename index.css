@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 42 33% 94%;
+    --foreground: 0 0% 12%;
+    --card: 42 33% 94%;
+    --card-foreground: 0 0% 12%;
+    --popover: 42 33% 94%;
+    --popover-foreground: 0 0% 12%;
+    --primary: 160 68% 14%;
+    --primary-foreground: 42 33% 94%;
+    --secondary: 160 30% 25%;
+    --secondary-foreground: 42 33% 94%;
+    --muted: 42 20% 88%;
+    --muted-foreground: 40 6% 41%;
+    --accent: 43 52% 54%;
+    --accent-foreground: 0 0% 12%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 15% 80%;
+    --input: 40 15% 80%;
+    --ring: 43 52% 54%;
+    --radius: 0.625rem;
+    --sidebar-background: 160 68% 14%;
+    --sidebar-foreground: 42 33% 94%;
+    --sidebar-primary: 43 52% 54%;
+    --sidebar-primary-foreground: 0 0% 12%;
+    --sidebar-accent: 160 30% 20%;
+    --sidebar-accent-foreground: 42 33% 94%;
+    --sidebar-border: 160 30% 25%;
+    --sidebar-ring: 43 52% 54%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-masjid-cream text-masjid-charcoal font-body antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-masjid-gold to-amber-500;
+  }
+  
+  .glass-card {
+    @apply bg-white/90 backdrop-blur-md border border-white/20;
+  }
+  
+  .glass-card-dark {
+    @apply bg-masjid-green/90 backdrop-blur-md border border-white/10;
+  }
+  
+  .btn-primary {
+    @apply bg-masjid-gold text-masjid-charcoal px-6 py-3 rounded-pill font-medium 
+           hover:bg-amber-500 transition-all duration-300 hover:shadow-lg
+           active:scale-95;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-masjid-gold text-masjid-gold px-6 py-3 rounded-pill font-medium 
+           hover:bg-masjid-gold hover:text-masjid-charcoal transition-all duration-300
+           active:scale-95;
+  }
+  
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16;
+  }
+  
+  .heading-xl {
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold leading-tight;
+  }
+  
+  .heading-lg {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-heading font-semibold leading-tight;
+  }
+  
+  .heading-md {
+    @apply text-2xl sm:text-3xl lg:text-4xl font-heading font-semibold leading-tight;
+  }
+  
+  .heading-sm {
+    @apply text-xl sm:text-2xl font-heading font-semibold;
+  }
+  
+  .body-lg {
+    @apply text-base sm:text-lg leading-relaxed;
+  }
+  
+  .body-md {
+    @apply text-sm sm:text-base leading-relaxed;
+  }
+  
+  .label {
+    @apply text-xs uppercase tracking-[0.14em] font-medium;
+  }
+  
+  .gold-rule {
+    @apply w-px bg-masjid-gold;
+  }
+  
+  .gold-square {
+    @apply w-2 h-2 bg-masjid-gold;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F6F2EA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0B3A2E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C8A24A;
+}
+
+/* Grain overlay */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
